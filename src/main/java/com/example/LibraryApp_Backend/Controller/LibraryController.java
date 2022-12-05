@@ -38,8 +38,13 @@ public class LibraryController {
         return "Welcome to book viewAll page";
     }
     @PostMapping("/delete")
-    public String BoolDelete()
+    public String BookDelete()
     {
         return "Welcome to book delete page";
+    }
+    @PostMapping("/issue")
+    public String BookIssue()
+    {
+        return "Welcome to book issue page";
     }
 }
