@@ -21,4 +21,9 @@ public class LibraryController {
     {
         return "Welcome to user register page";
     }
+    @PostMapping("/entry")
+    public String BookEntry()
+    {
+        return "Welcome to book entry page";
+    }
 }
