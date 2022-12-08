@@ -1,4 +1,4 @@
-package com.example.LibraryApp_Backend.Controller.model;
+package com.example.LibraryApp_Backend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

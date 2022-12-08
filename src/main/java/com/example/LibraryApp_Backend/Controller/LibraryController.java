@@ -1,7 +1,7 @@
 package com.example.LibraryApp_Backend.Controller;
 
-import com.example.LibraryApp_Backend.Controller.model.Library;
-import com.example.LibraryApp_Backend.Controller.model.User;
+import com.example.LibraryApp_Backend.model.Library;
+import com.example.LibraryApp_Backend.model.User;
 import com.example.LibraryApp_Backend.dao.LibraryDao;
 import com.example.LibraryApp_Backend.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;

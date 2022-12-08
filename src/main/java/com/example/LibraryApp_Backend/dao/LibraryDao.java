@@ -1,6 +1,7 @@
 package com.example.LibraryApp_Backend.dao;
 
-import com.example.LibraryApp_Backend.Controller.model.Library;
+import com.example.LibraryApp_Backend.model.Library;
+
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
