@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -50,10 +51,11 @@ public class LibraryController {
     {
         return "Welcome to book search page";
     }
+    @CrossOrigin(origins = "*")
     @GetMapping("/view")
-    public String BookView()
+    public List<Library> BookView()
     {
-        return "Welcome to book viewAll page";
+        return (List<Library>) dao.findAll();
     }
     @PostMapping("/delete")
     public String BookDelete()
