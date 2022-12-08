@@ -1,11 +1,15 @@
 package com.example.LibraryApp_Backend.Controller.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "bookAdd")
 public class Library {
+    @Id
+    @GeneratedValue
     private int id;
     private String title;
     private String author;
