@@ -60,10 +60,16 @@ public class LibraryController {
     {
         return (List<Library>) dao.findAll();
     }
-    @PostMapping("/delete")
-    public String BookDelete()
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/delete",consumes = "application/json",produces = "application/json")
+    public Map<String,String> BookDelete(@RequestBody Library l)
     {
-        return "Welcome to book delete page";
+        String id=String.valueOf(l.getId());
+        System.out.println(id);
+        dao.BookDelete(l.getId());
+        HashMap<String,String> map=new HashMap<>();
+        map.put("status","success");
+        return map;
     }
     @PostMapping("/issue")
     public String BookIssue()
