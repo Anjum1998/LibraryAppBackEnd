@@ -1,7 +1,9 @@
 package com.example.LibraryApp_Backend.Controller;
 
 import com.example.LibraryApp_Backend.Controller.model.Library;
+import com.example.LibraryApp_Backend.Controller.model.User;
 import com.example.LibraryApp_Backend.dao.LibraryDao;
+import com.example.LibraryApp_Backend.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +15,9 @@ import java.util.Map;
 public class LibraryController {
     @Autowired
     private LibraryDao dao;
+
+    @Autowired
+    private UserDao d;
     @PostMapping("/")
     public String AdminLogin()
     {
@@ -23,11 +28,24 @@ public class LibraryController {
     {
         return "Welcome to user login page";
     }
-    @PostMapping("/register")
-    public String UserRegister()
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/register",consumes = "application/json",produces = "application/json")
+    public Map<String,String> UserRegister(@RequestBody User u)
     {
-        return "Welcome to user register page";
-    }
+        System.out.println(u.getAadhar().toString());
+        System.out.println(u.getAddress().toString());
+        System.out.println(u.getConfirm().toString());
+        System.out.println(u.getDob().toString());
+        System.out.println(u.getEmail().toString());
+        System.out.println(u.getName().toString());
+        System.out.println(u.getPincode());
+        System.out.println(u.getPassword().toString());
+        System.out.println(u.getPhone());
+        System.out.println(u.getUsername().toString());
+        d.save(u);
+        HashMap<String,String> map=new HashMap<>();
+        map.put("status","success"); return map;
+}
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/entry",consumes = "application/json",produces = "application/json")
     public Map<String,String> BookEntry(@RequestBody Library l)
