@@ -46,10 +46,13 @@ public class LibraryController {
         map.put("status","success");
         return map;
     }
-    @PostMapping("/search")
-    public String BookSearch()
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/search",consumes = "application/json",produces = "application/json")
+    public List<Library> BookSearch(@RequestBody Library l)
     {
-        return "Welcome to book search page";
+        String title=l.getTitle().toString();
+        System.out.println(title);
+        return (List<Library>) dao.BookSearch(l.getTitle());
     }
     @CrossOrigin(origins = "*")
     @GetMapping("/view")
