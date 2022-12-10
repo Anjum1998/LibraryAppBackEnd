@@ -23,10 +23,15 @@ public class LibraryController {
     {
         return "Welcome to admin login page";
     }
-    @PostMapping("/login")
-    public String UserLogin()
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/login",consumes = "application/json",produces = "application/json")
+    public List<User> UserLogin(@RequestBody User u)
     {
-        return "Welcome to user login page";
+        String email=u.getEmail().toString();
+        String password=u.getPassword().toString();
+        System.out.println(email);
+        System.out.println(password);
+        return (List<User>) d.UserLogin(u.getEmail(),u.getPassword() );
     }
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/register",consumes = "application/json",produces = "application/json")
